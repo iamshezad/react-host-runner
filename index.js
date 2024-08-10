@@ -4,13 +4,13 @@ const { exec } = require("child_process");
 const fs = require("fs");
 
 // Set your static IP address and port here
-const ip = process.argv[2] || "10.254.254.254";
+const ip = process.argv[2] || "0.0.0.0";
 const port = process.argv[3] || "3000";        
 
 console.log(`Starting React app on http://${ip}:${port}`);
 
 // Determine project type by checking for specific files
-const isVite = fs.existsSync("vite.config.js") || fs.existsSync("vite.config.ts");
+const isVite = fs.existsSync("vite.config.js") || fs.existsSync("vite.config.ts") || fs.existsSync("vite.config.mjs");
 const isCRA = fs.existsSync("node_modules/react-scripts");
 const isNext = fs.existsSync("next.config.js");
 const isCustomWebpack = fs.existsSync("webpack.config.js");
@@ -20,7 +20,7 @@ let command;
 
 if (isVite) {
     console.log("Detected Vite project.");
-    command = `cross-env VITE_HOST=${ip} VITE_PORT=${port} vite`;
+    command = `cross-env VITE_HOST=${ip} VITE_PORT=${port} vite --host ${ip} --port ${port}`;
 } else if (isCRA) {
     console.log("Detected Create React App project.");
     command = `cross-env HOST=${ip} PORT=${port} react-scripts start`;
@@ -29,10 +29,11 @@ if (isVite) {
     command = `cross-env HOST=${ip} PORT=${port} next dev -H ${ip} -p ${port}`;
 } else if (isCustomWebpack) {
     console.log("Detected custom Webpack project.");
-    command = `cross-env HOST=${ip} PORT=${port} webpack serve`;
+    command = `cross-env HOST=${ip} PORT=${port} webpack serve --host ${ip} --port ${port}`;
 } else {
-    console.error("Unsupported project type or missing dependencies. Please ensure you're in a supported React project.");
-    process.exit(1);
+    console.log("Unsupported project type. Please ensure you're in a supported React project.");
+    // Fallback command: Replace 'npm start' with your project's start script if different
+    command = `cross-env HOST=${ip} PORT=${port} npm start`;
 }
 
 // Execute the command
