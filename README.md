@@ -24,22 +24,17 @@ react-host-runner 192.168.1.100 3000
 ```
 This command will start your React app on http://192.168.1.100:3000, making it accessible from other devices on the same network.
 
+#### Note: Before running this command, ensure that the specified IP address is available on your network. To do this, you can use the following commands:
+
+macOS: Open a terminal and run ifconfig. Look for the inet entry under the relevant network interface (e.g., en0 for Wi-Fi) to find the available IP addresses.
+
+Windows: Open a command prompt and run ipconfig. Look for the IPv4 Address under the relevant network interface (e.g., Wireless LAN adapter) to find the available IP addresses.
+
 ### Run with Default IP and Port
 ```bash
 react-host-runner 
 ```
-If you run the command without any arguments, react-host-runner will start your React app on the default IP address (http://10.254.254.254:3000). This setup can be connected and run using the React Lab app, enabling quick and easy access.
-
-### Example Output
-```bash
-Starting React app on http://192.168.1.100:3000
-```
-
-Or, using the default:
-
-```bash
-Starting React app on http://10.254.254.254:3000
-```
+If you run the command without any arguments, react-host-runner will start your React app on the default available IP address. The network IP address will be shown in the terminal:
 
 ### Additional Information
 
