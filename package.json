@@ -8,7 +8,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["React",
+  "keywords": [
+    "React",
     "Host",
     "IP address",
     "Network",
@@ -20,8 +21,13 @@
     "Web development",
     "React app",
     "Custom server",
-    "Frontend development"],
-  "author": "iamShezad",
+    "Frontend development"
+  ],
+  "author": {
+    "name": "Shezad Ahamed",
+    "email": "shezadahamed95@gmail.com",
+    "url": "https://iamshezad.github.io/"
+  },
   "license": "MIT",
   "description": "Run a React app on a specific IP address and port",
   "dependencies": {
@@ -30,5 +36,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/iamshezad/react-host-runner.git"
-  }
+  },
+  "homepage": "https://github.com/iamshezad/react-host-runner"
 }
