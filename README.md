@@ -34,7 +34,7 @@ Windows: Open a command prompt and run ipconfig. Look for the IPv4 Address under
 ```bash
 npx react-host-runner 
 ```
-If you run the command without any arguments, react-host-runner will start your React app on the default available IP address. The network IP address will be shown in the terminal:
+If you run the command without any arguments, react-host-runner will start your React app on the default available network IP address. The network IP address will be displayed in the terminal, and a QR code will be shown that you can scan to open the app in a mobile browser.
 
 ### Additional Information
 
