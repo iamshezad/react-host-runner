@@ -20,7 +20,7 @@ You can use react-host-runner to start your React app on a specific IP address a
 ### Run with Custom IP and Port
 
 ```bash
-react-host-runner 192.168.1.100 3000
+npx react-host-runner 192.168.1.100 3000
 ```
 This command will start your React app on http://192.168.1.100:3000, making it accessible from other devices on the same network.
 
@@ -32,7 +32,7 @@ Windows: Open a command prompt and run ipconfig. Look for the IPv4 Address under
 
 ### Run with Default IP and Port
 ```bash
-react-host-runner 
+npx react-host-runner 
 ```
 If you run the command without any arguments, react-host-runner will start your React app on the default available IP address. The network IP address will be shown in the terminal:
 
